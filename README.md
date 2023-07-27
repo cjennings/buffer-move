@@ -1,3 +1,32 @@
+note
+====
+
+This fork of buffer-move is different from [lukhas/buffer-move](https://github.com/lukhas/buffer-move) ONLY in that it incorporates a PR by taughtz found [here](https://github.com/lukhas/buffer-move/pull/19).
+
+From the commit message:
+
+Using cl- functions requires Emacs 24.3 and the cl-lib package. Not having this was causing an issue were cl-flet was apparently not working correctly, which was causing error messages like:
+
+    buf-move-right: Symbol’s value as variable is void: settings
+
+
+installation
+============
+
+If you're using the straight package manager:
+
+    (straight-use-package
+     '(el-patch :type git :host github :repo "lukhas/buffer-move"
+                :fork (:host github
+                       :repo "cjennings/buffer")))
+
+If you're using straight with use-package integration:
+
+    (use-package buffer-move
+      :straight (buffer-move :type git :host github :repo "lukhas/buffer-move"
+                             :fork (:host github :repo "cjennings/buffer-move")))
+
+
 buffer-move
 ===========
 
